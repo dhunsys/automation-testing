@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<empinfo>
+    <employee id="1">
+        <name>Jhon</name>
+        <designation discipline="web">Senior Consultant</designation>
+        
+        <email>abc@myemail.com</email>
+        </employee>
+
+    <employee id="2">
+        <name from="QA">Paul</name>
+        
+        <designation discipline="QA">QA Engineer</designation>
+        
+        <email>xyz@email.com</email>
+        
+    </employee>
+</empinfo>

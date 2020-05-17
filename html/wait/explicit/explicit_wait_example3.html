@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbox selected in 5000 ms</title>
+</head>
+<body>
+<input type="checkbox" id="c1" name="c1">
+<label for="c1">Pune</label><br>
+
+<script>
+setTimeout(function(){ document.getElementById("c1").checked=true; }, 5000);
+</script>
+
+</body>
+</html>
