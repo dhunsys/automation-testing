@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book srno="1">
+        <title lang="en">Harry Potter</title>
+        <price>29.99</price>
+    </book>
+
+    <book srno="2">
+        <title lang="hindi">Learning XML</title>
+        <price>39.95</price>
+    </book>
+
+    <div>
+        <div class="divclass">
+            Div inside dive
+        </div>
+    </div>
+</bookstore> 
