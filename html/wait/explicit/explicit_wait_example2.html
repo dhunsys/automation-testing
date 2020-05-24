@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Enable button after 5000 ms</title>
 </head>
 <body>
+<center>
+<h1><br><br><br><br><hr>
+Button enables in 5000 milli seconds<br>
 <button id="b1" disabled="true">explicit-wait-example2</button>
+<br><br><br><hr>
+</h1>
 <script>
 setTimeout(function(){ document.getElementById("b1").disabled = false; }, 5000);
 </script>
+</center>
 </body>
 </html>

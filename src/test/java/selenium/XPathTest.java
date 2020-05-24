@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.Drivers;
 
+import java.util.Set;
+
 public class XPathTest extends Drivers {
 
 
@@ -18,64 +20,68 @@ public class XPathTest extends Drivers {
         //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
 
         ////Linux style for opening local file in browser
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //As tag starts with single slash that means root but employee is not root so test fails
-        WebElement singleSlash=driver.findElement(By.xpath("/employee"));
-        Assert.assertEquals(singleSlash.getAttribute("id"),"1");
+        WebElement singleSlash = driver.findElement(By.xpath("/employee"));
+        Assert.assertEquals(singleSlash.getAttribute("id"), "1");
 
 
     }
+
     @Test()
     public void absolutePath_1st_employee_Pass_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //Always give firs element if same tag appears more than once on same level
-        WebElement singleSlash=driver.findElement(By.xpath("/empinfo/employee"));
-        Assert.assertEquals(singleSlash.getAttribute("id"),"1");
+        WebElement singleSlash = driver.findElement(By.xpath("/empinfo/employee"));
+        Assert.assertEquals(singleSlash.getAttribute("id"), "1");
 
 
     }
+
     @Test()
     public void absolutePath_2nd_employee_Pass_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //Always give firs if same tag appears more than once on ame level. To select specific provide more info of that tag
-        WebElement singleSlash=driver.findElement(By.xpath("/empinfo/employee[@id='2']"));
-        Assert.assertEquals(singleSlash.getAttribute("id"),"2");
+        WebElement singleSlash = driver.findElement(By.xpath("/empinfo/employee[@id='2']"));
+        Assert.assertEquals(singleSlash.getAttribute("id"), "2");
 
 
     }
+
     @Test()
     public void relativePath_1st_employee_Pass_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //Give first element on entire page
-        WebElement singleSlash=driver.findElement(By.xpath("//employee"));
-        Assert.assertEquals(singleSlash.getAttribute("id"),"1");
+        WebElement singleSlash = driver.findElement(By.xpath("//employee"));
+        Assert.assertEquals(singleSlash.getAttribute("id"), "1");
 
 
     }
+
     @Test()
     public void relativePath_2nd_employee_Pass_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //Give first element on entire page. For specific one provide more details
-        WebElement singleSlash=driver.findElement(By.xpath("//employee[@id='2']"));
-        Assert.assertEquals(singleSlash.getAttribute("id"),"2");
+        WebElement singleSlash = driver.findElement(By.xpath("//employee[@id='2']"));
+        Assert.assertEquals(singleSlash.getAttribute("id"), "2");
 
 
     }
@@ -84,41 +90,79 @@ public class XPathTest extends Drivers {
     public void mix_path1_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //Give first name element
-        WebElement singleSlash=driver.findElement(By.xpath("/empinfo//name"));
-        Assert.assertEquals(singleSlash.getText(),"Jhon");
+        WebElement singleSlash = driver.findElement(By.xpath("/empinfo//name"));
+        Assert.assertEquals(singleSlash.getText(), "Jhon");
 
 
     }
+
     @Test()
     public void mix_path2_Pass_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //give first 'employee' designation
-        WebElement singleSlash=driver.findElement(By.xpath("//employee/designation"));
-        Assert.assertEquals(singleSlash.getText(),"Senior Consultant");
+        WebElement singleSlash = driver.findElement(By.xpath("//employee/designation"));
+        Assert.assertEquals(singleSlash.getText(), "Senior Consultant");
 
 
     }
+
     @Test()
     public void mix_path3_Pass_Test() throws InterruptedException {
         WebDriver driver = getFirefoxDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.get("file:///"+System.getProperty("user.dir")+"/html/xpath/xpath.xml");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/xpath.xml");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         //By default give first employee's designation but additional info looks for 2nd employee
-        WebElement singleSlash=driver.findElement(By.xpath("//employee/designation[@discipline='QA']"));
-        Assert.assertEquals(singleSlash.getText(),"QA Engineer");
+        WebElement singleSlash = driver.findElement(By.xpath("//employee/designation[@discipline='QA']"));
+        Assert.assertEquals(singleSlash.getText(), "QA Engineer");
 
 
     }
 
-    
+    @Test()
+    public void contains_Pass_Test() throws InterruptedException {
+        WebDriver driver = getFirefoxDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/login.html");
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
+        WebElement userId = driver.findElement(By.xpath("//*[contains(@name,'user')]"));
+        userId.sendKeys("myid");
+        Assert.assertEquals(userId.getAttribute("value"), "myid");
+
+
+    }
+
+    @Test()
+    public void startsWith_Pass_Test() throws InterruptedException {
+        WebDriver driver = getFirefoxDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/xpath/login.html");
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
+        driver.findElement(By.name("userid")).sendKeys("myid");
+        driver.findElement(By.name("pswrd")).sendKeys("mypw");
+        WebElement login = driver.findElement(By.xpath("//input[starts-with(@name,'Log')]"));
+        String parent = driver.getWindowHandle();
+        login.click();
+        Thread.sleep(2000);
+        Set<String> handle = driver.getWindowHandles();
+        for (String h : handle) {
+            if (!h.equals(parent)) {
+                driver.switchTo().window(h);
+                Assert.assertEquals(driver.getTitle(), "Welcome page");
+                break;
+            }
+        }
+
+
+    }
+
 }
