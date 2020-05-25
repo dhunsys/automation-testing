@@ -1,16 +1,11 @@
 package selenium.mouse;
 
-import okio.Timeout;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import selenium.Drivers;
-
-import java.time.Duration;
 
 public class MouseTest extends Drivers {
 
