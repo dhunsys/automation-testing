@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.button {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+    </style>
+</head>
+<body>
+<center><br><br><br><br><br>
+    <hr>
+    <h2>click to see different alerts</h2><br>
+
+    <button id="simple" class="button" onclick="simple()">Simple Alert</button>
+    <br><br><br>
+    <button id="confirmation" class="button" onclick="confirmation()">Confirmation</button>
+    <br><br><br>
+    <button id="prompt" class="button" onclick="promptAlert()">Prompt</button>
+    <br><br><br>
+    <hr>
+</center>
+<script>
+function simple() {
+  alert("Simple alert");
+}
+function confirmation() {
+  confirm("Confirmation alert");
+}
+function promptAlert() {
+  prompt("Enter your name");
+}
+
+</script>
+</body>
+</html>
