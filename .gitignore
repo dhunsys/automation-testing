@@ -18,3 +18,4 @@ target/*.*# Compiled class file
 *.zip
 *.tar.gz
 *.rar
+test-output/*.*
