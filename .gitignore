@@ -19,5 +19,6 @@ target/*.* # Compiled class file
 *.tar.gz
 *.rar
 # testNG result folder
-test-output/*.*
+
 .idea
+/test-output/
