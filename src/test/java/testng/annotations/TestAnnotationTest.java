@@ -1,6 +1,6 @@
 package testng.annotations;
 
-import dataprovider.DataPro;
+import testng.dataprovider.DataPro;
 import org.testng.annotations.Test;
 import selenium.Drivers;
 
@@ -123,7 +123,7 @@ public class TestAnnotationTest extends Drivers {
     Rows are fetched in the order as appear in database
      */
     @Test(dataProvider = "platformDp", dataProviderClass = DataPro.class, description = "The name of the data provider for this test method. ")
-    public void data_provider_sequential_test(Map platform) {
+    public void data_provider_sequential_test(Map<String,Object> platform) {
 
         System.out.println("os------>" + platform.get("os") + " version--------> " + platform.get("version"));
 
@@ -133,7 +133,7 @@ public class TestAnnotationTest extends Drivers {
     Rows are fetched randomly. If see sequential, run one more time to see difference
      */
     @Test(dataProvider = "platformDp1", dataProviderClass = DataPro.class, description = "The name of the data provider for this test method. ")
-    public void data_provider_Parallel_test(Map platform) {
+    public void data_provider_Parallel_test(Map<String,Object> platform) {
 
         System.out.println("os------>" + platform.get("os") + " version--------> " + platform.get("version"));
 
