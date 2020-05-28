@@ -1,11 +1,11 @@
 package testng.annotations;
 
-import org.testng.ITestContext;
-import org.testng.annotations.ITestAnnotation;
+import dataprovider.DataPro;
 import org.testng.annotations.Test;
 import selenium.Drivers;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 
 public class TestAnnotationTest extends Drivers {
 
@@ -115,7 +115,27 @@ public class TestAnnotationTest extends Drivers {
     @Test(alwaysRun = true, dependsOnMethods = "expected_exception_fail_test", description = "if set to true, this test method will always be run even if it depends on a method that failed.  ")
     public void always_run_true_test() {
 
-        System.out.println("I will run because alwaysRun is true and even my dependent one is failed");
+        System.out.println("I will run because alwaysRun is true and even its dependent one is failed");
+
+    }
+
+    /*
+    Rows are fetched in the order as appear in database
+     */
+    @Test(dataProvider = "platformDp", dataProviderClass = DataPro.class, description = "The name of the data provider for this test method. ")
+    public void data_provider_sequential_test(Map platform) {
+
+        System.out.println("os------>" + platform.get("os") + " version--------> " + platform.get("version"));
+
+    }
+
+    /*
+    Rows are fetched randomly. If see sequential, run one more time to see difference
+     */
+    @Test(dataProvider = "platformDp1", dataProviderClass = DataPro.class, description = "The name of the data provider for this test method. ")
+    public void data_provider_Parallel_test(Map platform) {
+
+        System.out.println("os------>" + platform.get("os") + " version--------> " + platform.get("version"));
 
     }
 }

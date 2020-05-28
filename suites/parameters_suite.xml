@@ -1,0 +1,28 @@
+<suite name="Parameter test Suite" verbose="2">
+    <!-- This parameter will be passed to every test in this suite -->
+    <parameter name="suite_level_param" value="SUITE"/>
+    <test name="Parameter Test one">
+        <!-- This parameter will be passed this test only -->
+        <parameter name="test_level_param" value="TEST-1"/>
+
+        <classes>
+            <class name="testng.annotations.ParametersTest">
+                <methods>
+                    <include name="test_level_param1_test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test two">
+        <!-- This parameter will be passed this test only -->
+        <parameter name="test_level_param" value="TEST-2"/>
+
+        <classes>
+            <class name="testng.annotations.ParametersTest">
+                <methods>
+                    <include name="test_level_param2_test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

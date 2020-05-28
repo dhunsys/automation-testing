@@ -1,0 +1,12 @@
+<suite name="Parameter test Suite" verbose="2">
+    <test name="Parameter Test one">
+       <classes>
+            <class name="testng.annotations.BeforeAfterAnnotationsTest">
+                <methods>
+                    <include name="test_level_param1_test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

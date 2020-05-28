@@ -1,4 +1,4 @@
-target/*.*# Compiled class file
+target/*.* # Compiled class file
 *.class
 
 # Log file
@@ -18,4 +18,6 @@ target/*.*# Compiled class file
 *.zip
 *.tar.gz
 *.rar
+# testNG result folder
 test-output/*.*
+.idea
