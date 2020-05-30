@@ -1,6 +1,7 @@
 package testng.annotations;
 
-import testng.dataprovider.DataPro;
+import org.testng.annotations.DataProvider;
+import testng.dataprovider.DataProviderFactory;
 import org.testng.annotations.Test;
 import selenium.Drivers;
 
@@ -119,10 +120,17 @@ public class TestAnnotationTest extends Drivers {
 
     }
 
+
+
+
+    @Test(dataProvider = "2DReturnType",dataProviderClass = DataProviderFactory.class)
+    public void data_provider_2d(String n1, Integer n2) {
+        System.out.println(n1 + " " + n2);
+    }
     /*
     Rows are fetched in the order as appear in database
      */
-    @Test(dataProvider = "platformDp", dataProviderClass = DataPro.class, description = "The name of the data provider for this test method. ")
+    @Test(dataProvider = "platformDp", dataProviderClass = DataProviderFactory.class, description = "The name of the data provider for this test method. ")
     public void data_provider_sequential_test(Map<String,Object> platform) {
 
         System.out.println("os------>" + platform.get("os") + " version--------> " + platform.get("version"));
@@ -132,7 +140,7 @@ public class TestAnnotationTest extends Drivers {
     /*
     Rows are fetched randomly. If see sequential, run one more time to see difference
      */
-    @Test(dataProvider = "platformDp1", dataProviderClass = DataPro.class, description = "The name of the data provider for this test method. ")
+    @Test(dataProvider = "platformDp1", dataProviderClass = DataProviderFactory.class, description = "The name of the data provider for this test method. ")
     public void data_provider_Parallel_test(Map<String,Object> platform) {
 
         System.out.println("os------>" + platform.get("os") + " version--------> " + platform.get("version"));

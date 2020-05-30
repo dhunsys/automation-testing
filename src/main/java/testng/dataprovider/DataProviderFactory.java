@@ -3,13 +3,14 @@ package testng.dataprovider;
 import db.SqliteHelper;
 import org.testng.annotations.DataProvider;
 
+import java.lang.reflect.Method;
 import java.util.*;
 
 /**
  * Author: mshahabuddin
  * Date: 2/13/2020
  */
-public class DataPro {
+public class DataProviderFactory {
 private SqliteHelper sqliteHelper=new SqliteHelper();
     @DataProvider(name = "platformDp")
     public Iterator<Object[]> getTestData() {
@@ -35,4 +36,24 @@ private SqliteHelper sqliteHelper=new SqliteHelper();
 
     }
 
+
+    @DataProvider(name = "2DReturnType")
+    public Object[][] createDp() {
+        return new Object[][] {
+                { "ABC", new Integer(36) },
+                { "XYZ", new Integer(37)},
+        };
+    }
+
+    @DataProvider(name = "nameDp")
+    public Object[][] gtName() {
+        return new Object[][] { {"ABC"}, {"XYZ"}};
+
+    }
+
+    @DataProvider(name = "setParallelTruewe")
+    public Object[][] gtParallelTrue(Method method) {
+        return new Object[][] { {"Mumbai"}, {"Delhi"},{"Kolkata"},{"Chennai"},{"Pune"},{"Patna"}};
+
+    }
 }

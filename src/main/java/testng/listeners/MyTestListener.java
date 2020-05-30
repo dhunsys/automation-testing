@@ -1,4 +1,4 @@
-package testng;
+package testng.listeners;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -10,17 +10,20 @@ public class MyTestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         System.out.println("Started Test : "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
+        System.out.println("Test running on host "+iTestResult.getHost());
      }
 
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         System.out.println("Success Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
+        System.out.println("Status : "+iTestResult.getStatus());
    }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("Failed Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
+        System.out.println("Status : "+iTestResult.getStatus());
 
      }
 
@@ -32,6 +35,7 @@ public class MyTestListener implements ITestListener {
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
         System.out.println("Failed with % Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
+        System.out.println("Status : "+iTestResult.getStatus());
 
     }
 

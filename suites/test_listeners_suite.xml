@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test Listener Suite" verbose="2">
+    <listeners>
+        <listener class-name="testng.listeners.MyTestListener" />
+    </listeners>
+    <test name="1">
+       <classes>
+            <class name="testng.listener.TestListenerXMLTest"/>
+
+        </classes>
+    </test>
+
+</suite>

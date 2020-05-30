@@ -3,7 +3,7 @@ package testng.listener;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import testng.MyTestListener;
+import testng.listeners.MyTestListener;
 
 @Listeners({MyTestListener.class})
 public class TestListenersTest {
@@ -21,15 +21,15 @@ public class TestListenersTest {
     }
 
     /*
-    Default successPercentage % is 100 i.e if a test runs n times it mus pass n times to be considered as pass
-    Here we are running his test 4 times where it passes 2 times and fails 2 times. So pass count=2 and fail count=2
-    so to mark all test pass we should put minimum 'successPercentage' =(passing count/4)*100 =(2/4)*100=50
+    Default successPercentage % is 100 i.e if a test runs n times it must pass n times to be considered as pass
+    Here we are running this test 4 times where it passes 2 times and fails 2 times. So pass count=2 and fail count=2
+    so to mark it pass we should put minimum 'successPercentage' =(passing count/4)*100 =(2/4)*100=50
     Also 60% of 4=2.4 so for 'successPercentage' 60, all test will be marked as passed (2.4 is considered as 2 and it is <=pass count)
     Again 70% of 4=2.8 so for 'successPercentage' 70, all test will be marked as passed (2.8 is considered as 2 and it is <=pass count)
     Again 74% of 4=2.96 so for 'successPercentage' 74, all test will be marked as passed (2.96 is considered as 2 and it is <=pass count)
-    Again 75% of 4=3 so for 'successPercentage' 75, one of the test will be marked as failed because total pass test are 2
+    Again 75% of 4=3 so for 'successPercentage' 75, one of the test will be marked as failed because (3(expected passed test)>2(Actual pass test)
      */
-    @Test(invocationCount = 4, successPercentage = 75)
+    @Test(invocationCount = 4, successPercentage = 70)
     public void test_with_success_percentage() {
         count++;
         System.out.println("count % 2 = " + count % 2);
