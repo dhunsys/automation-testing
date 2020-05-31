@@ -36,7 +36,6 @@ private SqliteHelper sqliteHelper=new SqliteHelper();
 
     }
 
-
     @DataProvider(name = "2DReturnType")
     public Object[][] createDp() {
         return new Object[][] {

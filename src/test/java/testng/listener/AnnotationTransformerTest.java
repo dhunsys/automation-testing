@@ -13,7 +13,7 @@ import testng.listeners.MyAnnotationTransformer;
  * IAnnotationTransformer listener interface
  */
 
-public class IAnnotationTransformerTest {
+public class AnnotationTransformerTest {
 
     @Test
     public void add_data_provider_run_time_test(String name) {

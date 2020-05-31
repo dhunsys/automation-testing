@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite Listener Suite" parallel="methods">
+    <listeners>
+        <listener class-name="testng.listeners.MySuiteListener" />
+    </listeners>
+    <test name="test1">
+       <classes>
+            <class name="testng.listener.SuiteListenerTest">
+                <methods>
+                    <include name="suite_listener_test1"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test2">
+        <classes>
+            <class name="testng.listener.SuiteListenerTest">
+                <methods>
+                    <include name="suite_listener_test2"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

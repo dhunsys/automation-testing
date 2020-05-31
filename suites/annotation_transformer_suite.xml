@@ -5,7 +5,7 @@
     </listeners>
     <test name="1">
        <classes>
-            <class name="testng.listener.IAnnotationTransformerTest"/>
+            <class name="testng.listener.AnnotationTransformerTest"/>
         </classes>
     </test>
 
