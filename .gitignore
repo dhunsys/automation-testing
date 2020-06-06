@@ -22,4 +22,3 @@ target/*.* # Compiled class file
 
 .idea
 /test-output/
-automation.iml
