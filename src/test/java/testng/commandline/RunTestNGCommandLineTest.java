@@ -32,12 +32,15 @@ import java.lang.reflect.Method;
  * Check skip count must be 1
  * configfailurepolicy=continue is not working:
  * java -cp automation-1.0-SNAPSHOT.jar:automation-1.0-SNAPSHOT-tests.jar:libs/* org.testng.TestNG -configfailurepolicy continue /home/ms/projects/automation/suites/commandline/config_failure_policy_suite.xml
+ *
+ * SUITE FILE USED : commandline_suite.xml/config_fail_policy_suite.xml
+ *
  */
 public class RunTestNGCommandLineTest extends Drivers {
     int i = 0;
 
     @BeforeMethod
-    public void beforMethod() {
+    public void beforeMethod() {
         //used for passing 'configfailurepolicy' parameter
         if (i == 1) {
             int b = i / 0;

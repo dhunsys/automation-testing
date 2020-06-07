@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Soft Dependencies Suite">
+    <test name="SDT">
+
+        <classes>
+            <class name="testng.dependencies.SoftDependenciesTest">
+                <methods>
+                    <include name="soft_dependencies_test"/>
+                    <include name="depend_on_me1_test"/>
+                    <include name="depend_on_me2_test"/>
+                    <include name="depend_on_fail_test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

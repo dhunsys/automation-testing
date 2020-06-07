@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="DependenciesInXml">
+    <test name="My suite">
+        <groups>
+            <run>
+                <include name="c"/>
+            </run>
+            <dependencies>
+                <group name="c" depends-on="a  d" />
+            </dependencies>
+        </groups>
+        <classes>
+            <class name="testng.dependencies.DependenciesInXmlTest"/>
+        </classes>
+    </test>
+</suite>
