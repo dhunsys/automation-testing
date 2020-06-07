@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Run in command line Suite1">
+    <test name="Config-failure-policy">
+       <classes>
+            <class name="testng.commandline.RunTestNGCommandLineTest">
+                <methods>
+                    <include name="command_line_config_fail_policy_pass_test"/>
+                    <include name="command_line_config_fail_policy_skip_test"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+</suite>
