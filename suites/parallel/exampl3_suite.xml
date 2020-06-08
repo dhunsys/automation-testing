@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Parallel method Suite-3" parallel="methods">
+    <test name="pmt-3">
+       <classes>
+            <class name="testng.parallel.ParallelMethodTest">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                    <include name="test3"/>
+                    <include name="test4"/>
+                    <include name="test5"/>
+                    <include name="test6"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+</suite>
