@@ -1,5 +1,6 @@
 package testng.parallel;
 
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 /**
@@ -15,7 +16,7 @@ import org.testng.annotations.Test;
  * This suite sets the 'parallel' attribute to 'methods'. That means all methods in suite will run in parallel
  * Observe the order of test executions. Tests are picked randomly.
  * Observe the thread id for each test, it is different.
- * To maintain order use 'dependsonMethod. If test3 depends on 'test2' then TestNG will run 'test2' first then
+ * To maintain order use 'dependsOnMethod. If test3 depends on 'test2' then TestNG will run 'test2' first then
  * it may or may not other tests in suite before executing 'test3'. Run suite multiple times to see this effect
  * -----------------------------------------Example-3----------------------------------------------------
  * Lets run suite 'example3_suite.xml'
@@ -24,35 +25,39 @@ import org.testng.annotations.Test;
  * ---------------------------------Example-4-------------------------------------------------------------
  * Lets run suite 'example4_suite.xml'
  * In 'example-3' we knew that due to lack of thread any two methods executed by same thread.
- * Executing multiple code by same thread sometimes produce data inconsistency.
  * Use 'thread-count' to match with the no of methods. Here we set 'thread-count=6' so that 6 test methods will run by unique threads
- *-----------------------------------------Example-5-------------------------------------------------------
- * */
+ */
 public class ParallelMethodTest {
 
     @Test
-    public void test1(){
-        System.out.println("test1 is executed by thread "+Thread.currentThread().getId());
+    public void test1() {
+        System.out.println("test1 is executed by thread " + Thread.currentThread().getId());
     }
 
     @Test
-    public void test2(){
-        System.out.println("test2 is executed by thread "+Thread.currentThread().getId());
+    public void test2() {
+        System.out.println("test2 is executed by thread " + Thread.currentThread().getId());
     }
+
     @Test()
-    public void test3(){
-        System.out.println("test3 is executed by thread "+Thread.currentThread().getId());
+    public void test3() {
+        System.out.println("test3 is executed by thread " + Thread.currentThread().getId());
     }
+
     @Test
-    public void test4(){
-        System.out.println("test4 is executed by thread "+Thread.currentThread().getId());
+    public void test4() {
+        System.out.println("test4 is executed by thread " + Thread.currentThread().getId());
     }
+
     @Test
-    public void test5(){
-        System.out.println("test5 is executed by thread "+Thread.currentThread().getId());
+    public void test5() {
+        System.out.println("test5 is executed by thread " + Thread.currentThread().getId());
     }
+
     @Test
-    public void test6(){
-        System.out.println("test6 is executed by thread "+Thread.currentThread().getId());
+    public void test6() {
+        System.out.println("test6 is executed by thread " + Thread.currentThread().getId());
     }
+
+
 }
