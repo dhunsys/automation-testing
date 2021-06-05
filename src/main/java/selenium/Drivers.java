@@ -17,7 +17,11 @@ public class Drivers {
     public static WebDriver driver = null;
 
     public WebDriver getChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "/home/ms/drivers/chromedriver");
+       //linux
+        // System.setProperty("webdriver.chrome.driver", "/home/ms/drivers/chromedriver");
+        //windows
+        System.setProperty("webdriver.chrome.driver", System.getProperty(("user.dir"))+"/drivers/chromedriver.exe");
+
         driver = new ChromeDriver();
 
         return driver;

@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.Drivers;
 
+import java.time.Duration;
+
 public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
 
     @Test(description = "page opens alert after 5 seconds but explicit wait is set (2 seconds) so test fails")
@@ -21,7 +23,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         //on page open an alert appears so we can't do any action like max window until alert is dismissed. so comment below line
         //driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 2);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         String txt = alert.getText();
         alert.dismiss();
@@ -38,7 +40,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         //on page open an alert appears so we can't do any action like max wind until alert is dismissed. so comment below line
         //driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 6);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         String txt = alert.getText();
         alert.dismiss();
@@ -55,7 +57,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         //on page open an alert appears so we can't do any action like max wind until alert is dismissed. so comment below line
         //driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 4);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("b1"))));
 
         element.click();
@@ -70,7 +72,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example2.html");
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("b1"))));
 
         element.click();
@@ -85,7 +87,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example3.html");
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 4);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.elementSelectionStateToBe(driver.findElement(By.id("c1")), true));
 
     }
@@ -98,7 +100,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example3.html");
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementSelectionStateToBe(driver.findElement(By.id("c1")), true));
 
     }
@@ -110,7 +112,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example4.html");
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 4);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.titleIs("MSTitle"));
 
     }
@@ -122,7 +124,7 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
         driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example4.html");
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.titleIs("MSTitle"));
 
     }

@@ -11,7 +11,7 @@ public class AlertsTest extends Drivers {
     @Test()
     public void simple_alert_test() throws InterruptedException {
 
-        WebDriver driver = getFirefoxDriver();
+        WebDriver driver = getChromeDriver();
         //Windows style for opening local file in browser
         //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
 
@@ -33,7 +33,7 @@ public class AlertsTest extends Drivers {
         //Windows style for opening local file in browser
         //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
 
-        ////Linux style for opening local file in browser
+        //Linux style for opening local file in browser
         driver.get("file:///" + System.getProperty("user.dir") + "/html/alerts/alerts.html");
         driver.manage().window().maximize();
         driver.findElement(By.id("confirmation")).click();
