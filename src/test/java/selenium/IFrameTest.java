@@ -8,33 +8,12 @@ import org.testng.annotations.Test;
 
 
 public class IFrameTest extends Drivers {
-    @Test()
-    public void crate_two_frames_test() {
-
-        WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
-        driver.manage().window().maximize();
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test()
     public void click_first_frame_button_fail_test() {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
         driver.manage().window().maximize();
 
         WebElement element = driver.findElement(By.id("b1"));
@@ -44,12 +23,8 @@ public class IFrameTest extends Drivers {
     @Test()
     public void click_first_frames_button_pass_test() {
 
-        WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
+        WebDriver driver = getChromeDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
         driver.manage().window().maximize();
         driver.switchTo().frame(0);// index starts from 0
         WebElement element = driver.findElement(By.id("b1"));
@@ -66,11 +41,7 @@ public class IFrameTest extends Drivers {
     public void click_second_frames_button_pass_test() {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
         driver.manage().window().maximize();
         driver.switchTo().frame("f2");// select frame by name
         WebElement element = driver.findElement(By.id("b1"));
@@ -87,11 +58,7 @@ public class IFrameTest extends Drivers {
     public void click_first_frame_button_then_second_frame_button_fail_test() {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
         driver.manage().window().maximize();
         driver.switchTo().frame(0);// select frame by name
         WebElement f1b1 = driver.findElement(By.id("b1"));
@@ -118,11 +85,7 @@ public class IFrameTest extends Drivers {
     public void click_first_frame_button_then_second_frame_button_using_default_content_pass_test() {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
+       driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
         driver.manage().window().maximize();
         driver.switchTo().frame(0);// select frame by name
         WebElement f1b1 = driver.findElement(By.id("b1"));
@@ -152,11 +115,7 @@ public class IFrameTest extends Drivers {
     public void click_first_frame_button_then_second_frame_button_using_parent_frame_pass_test() {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example1/index.html");
         driver.manage().window().maximize();
         driver.switchTo().frame(0);// select frame by name
         WebElement f1b1 = driver.findElement(By.id("b1"));
@@ -186,7 +145,7 @@ public class IFrameTest extends Drivers {
     public void click_given_button_present_in_any_of_ten_frames_pass_test() {
 
         WebDriver driver = getFirefoxDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example3/index.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example2/index.html");
         driver.manage().window().maximize();
         int size = driver.findElements(By.tagName("iframe")).size();
         for (int i = 0; i <= size; i++) {
@@ -217,7 +176,7 @@ public class IFrameTest extends Drivers {
     public void traverse_and_find_text_in_h1_tag_in_nested_frame_pass_test() {
 
         WebDriver driver = getFirefoxDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example4/index.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/iframe/iframe_example3/index.html");
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Index Page");
         driver.switchTo().frame(0); //we can use name
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "I am html-1");
