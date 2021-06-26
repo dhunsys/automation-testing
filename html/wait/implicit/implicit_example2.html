@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+   }
+   async function implicit() {
+        document.write('<p>Sleeping for 1000 milli seconds');
+        await sleep(1000);
+        document.write('<p>wake up, adding a button<br>');
+        var btn = document.createElement("BUTTON");   // Create a <button> element
+        btn.innerHTML = "CLICK ME";                   // Insert text
+        document.body.appendChild(btn);               // Append <button> to <body>
+   }
+   implicit()
+
+
+</script>
+
+</body>
+</html>
