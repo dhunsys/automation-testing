@@ -14,39 +14,58 @@ import java.time.Duration;
 
 public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
 
+    @Test(description = "except a title in 4 s but it appears after 5 seconds so test fails")
+    public void title_is_fail_test() {
+        WebDriver driver = getChromeDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/title_test.html");
+        driver.manage().window().maximize();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.titleIs("MyTitle"));
+    }
+
+    @Test(description = "except a title in 5 s and it appears in 5 seconds test pass")
+    public void title_is_pass_test() throws InterruptedException {
+        WebDriver driver = getChromeDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/title_test.html");
+        driver.manage().window().maximize();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.titleIs("MyTitle"));
+       Thread.sleep(1000);// a little wait to see the title otherwise browser closes immediately
+    }
+
     @Test(description = "page opens alert after 5 seconds but explicit wait is set (2 seconds) so test fails")
     public void check_alert_appears_in_5_second_fail_test() {
-
-        WebDriver driver = getFirefoxDriver();
-
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example1.html");
+        WebDriver driver = getChromeDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/alert.html");
         //on page open an alert appears so we can't do any action like max window until alert is dismissed. so comment below line
         //driver.manage().window().maximize();
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         String txt = alert.getText();
         alert.dismiss();
         Assert.assertEquals(txt, "Alert");
-
     }
 
-    @Test(description = "page opens alert after 5 seconds but explicit wait is set (6 seconds) so test pass")
+    @Test(description = "page opens alert after 5 seconds but explicit wait is set (5 seconds) so test pass")
     public void check_alert_appears_in_5_second_pass_test() {
-
-        WebDriver driver = getFirefoxDriver();
-
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example1.html");
+        WebDriver driver = getChromeDriver();
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/alert.html");
         //on page open an alert appears so we can't do any action like max wind until alert is dismissed. so comment below line
         //driver.manage().window().maximize();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         String txt = alert.getText();
         alert.dismiss();
         Assert.assertEquals(txt, "Alert");
 
     }
+
+
+
+
+
+
+
 
     @Test(description = "a button on page is disabled for 5000 ms and explicit wait is set to 4000 ms so test fail")
     public void click_button_if_disabled_fail_test() {
@@ -105,27 +124,5 @@ public class ExplicitWaitUsingWebDriverWaitTest extends Drivers {
 
     }
 
-    @Test(description = "except a title in 4 s but it appears after 5 seconds so test fails")
-    public void title_is_fail_test() {
 
-        WebDriver driver = getFirefoxDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example4.html");
-        driver.manage().window().maximize();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.titleIs("MSTitle"));
-
-    }
-
-    @Test(description = "except a title in 5 s and it appears in 5 seconds test pass")
-    public void title_is_pass_test() {
-
-        WebDriver driver = getFirefoxDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/wait/explicit/explicit_wait_example4.html");
-        driver.manage().window().maximize();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.titleIs("MSTitle"));
-
-    }
 }

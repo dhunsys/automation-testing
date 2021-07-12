@@ -13,9 +13,8 @@ public class ButtonClickTest extends Drivers {
 
     @Test(description = "click a button")
     public void button_click_test() {
-
         WebDriver driver = getChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/buttonClick.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/click/buttonClick.html");
         driver.manage().window().maximize();
         WebElement element = driver.findElement(By.id("q"));
         element.click();
@@ -24,10 +23,9 @@ public class ButtonClickTest extends Drivers {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(element.getText(),"Button Clicked");
-
-
+        Assert.assertEquals(element.getText(),"CLICKED");
     }
+
     @Test(description = "click a button using js with arguments")
     public void button_click_js_test() {
 
