@@ -1,0 +1,6 @@
+loginModel:
+  uid: dhunsi
+  password: pass@123
+student:
+  name: Student1
+  roll: 1234

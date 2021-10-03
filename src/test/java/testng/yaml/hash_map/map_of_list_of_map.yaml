@@ -1,0 +1,7 @@
+m1:
+  - {key1: A, key2: B ,key3: C }
+  - {key1: D, key2: E ,key3: F }
+  - {key1: G, key2: H ,key3: I }
+m2:
+  - {key1: V1, key2: V2 ,key3: v3 }
+  - {key1: Good, key2: any ,key3: some }

@@ -30,7 +30,7 @@ public class ButtonClickTest extends Drivers {
     public void button_click_js_test() {
 
         WebDriver driver = getChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/buttonClick.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/click/buttonClick.html");
         driver.manage().window().maximize();
         WebElement element = driver.findElement(By.id("q"));
 
@@ -42,7 +42,7 @@ public class ButtonClickTest extends Drivers {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(element.getText(),"Button Clicked");
+        Assert.assertEquals(element.getText(),"CLICKED");
 
 
     }
@@ -51,20 +51,19 @@ public class ButtonClickTest extends Drivers {
     public void button_click_js_no_args_test() {
 
         WebDriver driver = getChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/html/buttonClick.html");
+        driver.get("file:///" + System.getProperty("user.dir") + "/html/click/buttonClick.html");
         driver.manage().window().maximize();
-        WebElement element = driver.findElement(By.id("q"));
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //no argument
-        js.executeScript("document.getElementById('q').click();");
+        WebElement element=(WebElement) js.executeScript("document.getElementById('q').click();return document.getElementById('q') ");
 
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(element.getText(),"Button Clicked");
+        Assert.assertEquals(element.getText(),"CLICKED");
 
 
     }

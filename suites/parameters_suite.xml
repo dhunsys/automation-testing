@@ -1,3 +1,4 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Parameter test Suite" verbose="2">
     <!-- This parameter will be passed to every test in this suite -->
     <parameter name="suite_level_param" value="SUITE"/>
@@ -8,7 +9,7 @@
         <classes>
             <class name="testng.annotations.ParametersTest">
                 <methods>
-                    <include name="test_level_param1_test"/>
+                    <include name="param1_test"/>
                 </methods>
             </class>
         </classes>
@@ -20,7 +21,7 @@
         <classes>
             <class name="testng.annotations.ParametersTest">
                 <methods>
-                    <include name="test_level_param2_test"/>
+                    <include name="param2_test"/>
                 </methods>
             </class>
         </classes>

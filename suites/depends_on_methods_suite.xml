@@ -1,0 +1,11 @@
+<suite name="DependsOn demo suite">
+
+    <test name="DependOn demo test">
+        <classes>
+            <class name="testng.annotations.test.DependsOnMethodsTest">
+
+            </class>
+        </classes>
+    </test>
+
+</suite>
