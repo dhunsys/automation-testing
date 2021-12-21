@@ -11,12 +11,12 @@ public class TestListenersTest {
     int count = 0;
 
     @Test
-    public void test_listener1_pass_test() {
-        System.out.println("pass test");
+    public void test1() {
+        System.out.println("Executing test1");
     }
 
     @Test
-    public void test_listener1_fail_test() {
+    public void test2() {
         Assert.assertEquals(1, 2);
     }
 
@@ -29,8 +29,8 @@ public class TestListenersTest {
     Again 74% of 4=2.96 so for 'successPercentage' 74, all test will be marked as passed (2.96 is considered as 2 and it is <=pass count)
     Again 75% of 4=3 so for 'successPercentage' 75, one of the test will be marked as failed because (3(expected passed test)>2(Actual pass test)
      */
-    @Test(invocationCount = 4, successPercentage = 70)
-    public void test_with_success_percentage() {
+    @Test(invocationCount = 4, successPercentage = 50)
+    public void test_with_success_percentage50() {
         count++;
         System.out.println("count % 2 = " + count % 2);
         Assert.assertEquals(count % 2, 1); //success if "count" is an odd number

@@ -29,7 +29,7 @@ public class Drivers {
     }
 
     public WebDriver getFirefoxDriver() {
-        System.setProperty("webdriver.gecko.driver", "/home/ms/drivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", System.getProperty(("user.dir"))+"/drivers/geckodriver.exe");
         FirefoxOptions options = new FirefoxOptions();
         options.setAcceptInsecureCerts(true);
 

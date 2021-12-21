@@ -2,7 +2,7 @@
 <suite name="Parallel method Suite-3" parallel="methods">
     <test name="pmt-3">
        <classes>
-            <class name="testng.parallel.ParallelMethodTest">
+            <class name="testng.parallel.ParallelTest">
                 <methods>
                     <include name="test1"/>
                     <include name="test2"/>

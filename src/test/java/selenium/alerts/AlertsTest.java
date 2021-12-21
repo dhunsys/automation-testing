@@ -1,5 +1,6 @@
 package selenium.alerts;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -10,56 +11,56 @@ public class AlertsTest extends Drivers {
 
     @Test()
     public void simple_alert_test() throws InterruptedException {
-
         WebDriver driver = getChromeDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
         driver.get("file:///" + System.getProperty("user.dir") + "/html/alerts/alerts.html");
         driver.manage().window().maximize();
         driver.findElement(By.id("simple")).click();
-        String alertTxt = driver.switchTo().alert().getText();
+        Alert alert = driver.switchTo().alert();
         Thread.sleep(2000);
-        driver.switchTo().alert().dismiss();
-        Assert.assertEquals(alertTxt, "Simple alert");
-
+        alert.accept();
+        String alertTxt = driver.findElement(By.id("response")).getText();
+        Assert.assertEquals(alertTxt, "undefined");
+        Thread.sleep(2000);
     }
+
 
     @Test()
     public void confirmation_alert_test() throws InterruptedException {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        //Linux style for opening local file in browser
         driver.get("file:///" + System.getProperty("user.dir") + "/html/alerts/alerts.html");
         driver.manage().window().maximize();
         driver.findElement(By.id("confirmation")).click();
-        String alertTxt = driver.switchTo().alert().getText();
+        Alert alert = driver.switchTo().alert();
         Thread.sleep(2000);
-        driver.switchTo().alert().accept();
-        Assert.assertEquals(alertTxt, "Confirmation alert");
+        alert.accept();//Click OK
+        String alertTxt = driver.findElement(By.id("response")).getText();
+        Assert.assertEquals(alertTxt, "true");
+        Thread.sleep(10000);
+        driver.findElement(By.id("confirmation")).click();//open alert again
+        alert = driver.switchTo().alert();
+        Thread.sleep(2000);
+        alert.dismiss();//Press Cancel
+        alertTxt = driver.findElement(By.id("response")).getText();
+        Assert.assertEquals(alertTxt, "false");
+        Thread.sleep(10000);
 
     }
+
 
     @Test()
     public void prompt_alert_test() throws InterruptedException {
 
         WebDriver driver = getFirefoxDriver();
-        //Windows style for opening local file in browser
-        //driver.get("file:///C:/"+System.getProperty("user.dir")+"/html/iframe/index.html");
-
-        ////Linux style for opening local file in browser
         driver.get("file:///" + System.getProperty("user.dir") + "/html/alerts/alerts.html");
         driver.manage().window().maximize();
         driver.findElement(By.id("prompt")).click();
-        String alertTxt = driver.switchTo().alert().getText();
-        driver.switchTo().alert().sendKeys("MShahabuddin");
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys("Selenium");
         Thread.sleep(2000);
-        driver.switchTo().alert().accept();
-        Assert.assertEquals(alertTxt, "Enter your name");
+        alert.accept();
+        String alertTxt = driver.findElement(By.id("response")).getText();
+        Assert.assertEquals(alertTxt, "Selenium");
 
     }
 }

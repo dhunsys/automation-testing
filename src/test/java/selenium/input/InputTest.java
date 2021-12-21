@@ -1,5 +1,6 @@
 package selenium.input;
 
+import org.assertj.core.util.Compatibility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

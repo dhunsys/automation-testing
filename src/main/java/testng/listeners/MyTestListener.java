@@ -6,49 +6,43 @@ import org.testng.ITestResult;
 
 public class MyTestListener implements ITestListener {
 
-//
-//    @Override
-//    public void onTestStart(ITestResult iTestResult) {
-//        System.out.println("Started Test : "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
-//        System.out.println("Test running on host "+iTestResult.getHost());
-//     }
-//
-//
-//    @Override
-//    public void onTestSuccess(ITestResult iTestResult) {
-//        System.out.println("Success Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
-//        System.out.println("Status : "+iTestResult.getStatus());
-//   }
-//
-//    @Override
-//    public void onTestFailure(ITestResult iTestResult) {
-//        System.out.println("Failed Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
-//        System.out.println("Status : "+iTestResult.getStatus());
-//
-//     }
-//
-//    @Override
-//    public void onTestSkipped(ITestResult iTestResult) {
-//        System.out.println("Skipped Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
-//  }
-//
-//    @Override
-//    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-//        System.out.println("Failed with % Test: "+ iTestResult.getMethod().getQualifiedName()+" WITH Invocation count : "+iTestResult.getMethod().getInvocationCount());
-//        System.out.println("Status : "+iTestResult.getStatus());
-//
-//    }
-//
-//    //called twice since this method is implemented by ISuiteListeners
-//    @Override
-//    public void onStart(ITestContext iTestContext) {
-//        System.out.println("on start");
-//
-//    }
 
-    //called twice since this method is implemented by ISuiteListeners
+    @Override
+    public void onTestStart(ITestResult iTestResult) {
+        System.out.println("onTestStart of ITestListener");
+     }
+
+
+    @Override
+    public void onTestSuccess(ITestResult iTestResult) {
+        System.out.println("onTestSuccess of ITestListener");
+   }
+
+    @Override
+    public void onTestFailure(ITestResult iTestResult) {
+        System.out.println("onTestFailure of ITestListener");
+
+     }
+
+    @Override
+    public void onTestSkipped(ITestResult iTestResult) {
+        System.out.println("onTestSkipped of ITestListener");
+  }
+
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+        System.out.println("onTestFailedButWithinSuccessPercentage of ITestListener");
+
+    }
+
+    @Override
+    public void onStart(ITestContext iTestContext) {
+        System.out.println("onStart of ITestListener");
+
+    }
+
     @Override
     public void onFinish(ITestContext iTestContext) {
-       System.out.println("on finish");
+       System.out.println("onFinish of ITestListener");
     }
 }

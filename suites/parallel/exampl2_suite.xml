@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Parallel method Suite-2" parallel="methods">
+<suite name="Parallel method Suite-2"  thread-count="5">
     <test name="pmt-2">
        <classes>
-            <class name="testng.parallel.ParallelMethodTest">
+            <class name="testng.parallel.ParallelTest">
                 <methods>
                     <include name="test1"/>
                     <include name="test2"/>

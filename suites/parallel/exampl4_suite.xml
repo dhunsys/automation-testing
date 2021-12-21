@@ -2,7 +2,7 @@
 <suite name="Parallel method Suite-4" parallel="methods" thread-count="6">
     <test name="pmt-4">
        <classes>
-            <class name="testng.parallel.ParallelMethodTest">
+            <class name="testng.parallel.ParallelTest">
                 <methods>
                     <include name="test1"/>
                     <include name="test2"/>

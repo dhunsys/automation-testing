@@ -4,12 +4,30 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.Drivers;
 
-public class ButtonClickTest extends Drivers {
+import java.time.Duration;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.function.Function;
 
+public class ButtonClickTest extends Drivers {
+    @Test(description = "click a button")
+    public void button_click_test1() throws InterruptedException {
+        WebDriver driver = getChromeDriver();
+        driver.get("https://testng-selenium.blogspot.com/");
+        driver.manage().window().maximize();
+        int i=0;
+       while(i<1000){
+           i++;
+           driver.navigate().refresh();
+           Thread.sleep(1000);
+       }
+    }
 
     @Test(description = "click a button")
     public void button_click_test() {
@@ -67,4 +85,7 @@ public class ButtonClickTest extends Drivers {
 
 
     }
+
+
+
 }

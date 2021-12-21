@@ -23,7 +23,7 @@ public class SeleniumExceptionTest extends Drivers {
     }
 
     @Test()
-    public void no_such_element_exception_test()  {
+    public void no_such_element_exception_test() {
         WebDriver driver = getChromeDriver();
         driver.get("file:///" + System.getProperty("user.dir") + "/html/selenium_exception/no_such_element_exception.html");
         driver.manage().window().maximize();
@@ -34,7 +34,7 @@ public class SeleniumExceptionTest extends Drivers {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(element.getAttribute("value"),"NoSuchEE");
+        Assert.assertEquals(element.getAttribute("value"), "NoSuchEE");
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
         //Remove above element
         javascriptExecutor.executeScript("document.getElementById('1').parentNode.removeChild(document.getElementById('1'));");
@@ -45,16 +45,8 @@ public class SeleniumExceptionTest extends Drivers {
         }
         //Error-Element is not present
         element = driver.findElement(By.name("nse"));
-        Assert.assertEquals(element.getAttribute("value"),"NoSuchEE");
+        Assert.assertEquals(element.getAttribute("value"), "NoSuchEE");
     }
-
-
-
-
-
-
-
-
 
 
     @Test()
@@ -78,17 +70,6 @@ public class SeleniumExceptionTest extends Drivers {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     @Test()
     public void stale_element_reference_exception_by_refresh_test() {
         WebDriver driver = getChromeDriver();
@@ -106,20 +87,6 @@ public class SeleniumExceptionTest extends Drivers {
         //Error-element reference is invalid as element removed. Any operation on such object throw stale element exception
         element.click();//stale element exception here
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Test()
@@ -162,10 +129,6 @@ public class SeleniumExceptionTest extends Drivers {
     }
 
 
-
-
-
-
     @Test()
     public void session_not_found_exception_test() {
         WebDriver driver = getChromeDriver();
@@ -199,11 +162,12 @@ public class SeleniumExceptionTest extends Drivers {
 
 
 
-        @Test()
+
+
+    @Test()
     public void no_alert_present_exception_test() {
         WebDriver driver = getChromeDriver();
         driver.get("file:///" + System.getProperty("user.dir") + "/html/selenium_exception/no_alert_present_exception.html");
-        //Exception as there is no alert. To pass add an alert in html and add a line 'driver.switchTo().alert().dismiss();' after below line
         driver.switchTo().alert();
     }
-    }
+}

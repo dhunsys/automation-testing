@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import testng.dataprovider.DataProviderFactory;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 
 public class TestAnnotationTest {
@@ -119,9 +120,15 @@ public class TestAnnotationTest {
 
 
 
-    @Test(dataProvider = "2DReturnType",dataProviderClass = DataProviderFactory.class)
-    public void data_provider_2d(String n1, Integer n2) {
-        System.out.println(n1 + " " + n2);
+    @Test(dataProvider = "2DReturnType",
+            dataProviderClass = DataProviderFactory.class)
+    public void data_provider_2d(Object[] x) {
+        System.out.println(x[0] +"="+x[1]);
+    }
+    @Test(dataProvider = "myDp",
+            dataProviderClass = DataProviderFactory.class)
+    public void data_provider_map(Map<String,String> student) {
+        System.out.println(student.get("name")+"="+student.get("roll"));
     }
     /*
     Rows are fetched in the order as appear in database

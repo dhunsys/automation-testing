@@ -1,43 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-.button {
-  position: relative;
-  background-color: #4CAF50;
-  border: none;
-  font-size: 28px;
-  color: #FFFFFF;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
 
-.button:after {
-  content: "";
-  background: #f1f1f1;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
-}
-
-.button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
-
-    </style>
 </head>
 <body>
 <center><br><br><br><br><br>
@@ -51,16 +15,22 @@
     <button id="prompt" class="button" onclick="promptAlert()">Prompt</button>
     <br><br><br>
     <hr>
+    <h1>
+        RESPONSE: <p id="response"></p>
+    </h1>
 </center>
 <script>
 function simple() {
-  alert("Simple alert");
+   var answer = alert("Simple alert");
+document.getElementById("response").innerHTML = answer;
 }
 function confirmation() {
-  confirm("Confirmation alert");
+  var answer =confirm("Confirmation alert");
+  document.getElementById("response").innerHTML = answer;
 }
 function promptAlert() {
-  prompt("Enter your name");
+  var answer =prompt("Enter your name");
+  document.getElementById("response").innerHTML = answer;
 }
 
 </script>

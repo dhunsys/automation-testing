@@ -7,6 +7,18 @@ import selenium.Drivers;
 
 public class ParametersTest extends Drivers {
 
+    @Parameters({"test_level_param1"})
+    @Test()
+    public void param_test(@Optional("DF")String p) {
+
+        System.out.println("Test level parameter value--> " + p);
+    }
+    @Parameters({"test_level_param"})
+    @Test()
+    public void param_test1(String p) {
+
+        System.out.println("Test level parameter value--> " + p);
+    }
 
     @Parameters({"suite_level_param", "test_level_param"})
     @Test()

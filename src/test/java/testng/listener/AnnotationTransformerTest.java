@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import testng.dataprovider.DataProviderFactory;
 import testng.listeners.MyAnnotationTransformer;
 
+import java.util.Map;
+
 /**
  * Annotations are static in nature by design, so any change in the values require recompilation of source files.
  * IAnnotationTransformer allows to add/remove annotation at run time
@@ -16,8 +18,8 @@ import testng.listeners.MyAnnotationTransformer;
 public class AnnotationTransformerTest {
 
     @Test
-    public void add_data_provider_run_time_test(String name) {
-        System.out.println("Method 'add_data_provider_run_time_test'" + " Name : " + name);
+    public void add_data_provider_run_time_test(Map<String,Object> village) {
+        System.out.println("Method 'add_data_provider_run_time_test'" + " Village : " + village.get("village").toString());
     }
 
 

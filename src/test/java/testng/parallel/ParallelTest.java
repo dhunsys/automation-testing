@@ -27,14 +27,17 @@ import org.testng.annotations.Test;
  * In 'example-3' we knew that due to lack of thread any two methods executed by same thread.
  * Use 'thread-count' to match with the no of methods. Here we set 'thread-count=6' so that 6 test methods will run by unique threads
  */
-public class ParallelMethodTest {
-
+public class ParallelTest {
+    @Test(threadPoolSize = 3, invocationCount = 10,  timeOut = 10000)
+    public void testServer() {
+        System.out.println("test1 is executed by thread " + Thread.currentThread().getId());
+    }
     @Test
     public void test1() {
         System.out.println("test1 is executed by thread " + Thread.currentThread().getId());
     }
 
-    @Test
+    @Test()
     public void test2() {
         System.out.println("test2 is executed by thread " + Thread.currentThread().getId());
     }
