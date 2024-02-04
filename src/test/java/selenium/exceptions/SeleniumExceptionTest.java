@@ -1,9 +1,6 @@
 package selenium.exceptions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.Drivers;
@@ -144,30 +141,28 @@ public class SeleniumExceptionTest extends Drivers {
         driver.getTitle();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test()
     public void no_alert_present_exception_test() {
         WebDriver driver = getChromeDriver();
         driver.get("file:///" + System.getProperty("user.dir") + "/html/selenium_exception/no_alert_present_exception.html");
         driver.switchTo().alert();
+    }
+    /**
+     * Element is behind an element
+     * @throws InterruptedException
+     */
+    @Test()
+    public void element_intercepted_exception_test() throws InterruptedException {
+        WebDriver driver = getChromeDriver();
+        driver.get("https://www.google.com");
+        driver.manage().window().maximize();
+        driver.findElement(By.name("q")).click();
+        Thread.sleep(1000);
+        WebElement element=driver.findElement(By.xpath("//*[@id='SIvCob']/a[1]"));
+        Thread.sleep(1000);
+        driver.findElement(By.name("q")).sendKeys(Keys.ESCAPE);
+        Thread.sleep(1000);
+        element.click();
+        Thread.sleep(1000);
     }
 }
