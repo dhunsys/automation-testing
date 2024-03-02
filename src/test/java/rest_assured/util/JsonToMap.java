@@ -7,19 +7,7 @@ import java.util.Map;
 
 public class JsonToMap {
 
-    public static Map getJsonMap(String args){
-        String json = "{\n" +
-                "    \"fields\": {\n" +
-                "        \"project\": {\n" +
-                "            \"key\": \"AP\"\n" +
-                "        },\n" +
-                "        \"summary\": \"something's wrong\",\n" +
-                "\t\"description\": \"my restapi bug\"  ,      \n" +
-                "\t\"issuetype\": {\n" +
-                "            \"name\": \"Bug\"\n" +
-                "        }\n" +
-                "}\n" +
-                "}";
+    public static Map getJsonMap(String json){
         Gson gson = new Gson();
         Map map = gson.fromJson(json, Map.class);
        System.out.println(map);

@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import rest_assured.util.JsonToMap;
 
-public class Login {
+public class JIRATest {
     public String getSessionId(){
         RequestSpecification requestSpecification=RestAssured.given();
         requestSpecification.baseUri("http://localhost:8080");
@@ -39,7 +39,7 @@ public class Login {
         Assert.assertEquals(jsessionId,"JSESSIONID");
         String jsessionval=jsonPath.getString("session.value");
         Assert.assertEquals(jsessionval.length(),32);
-Assert.assertEquals(response.getStatusCode(),200);
+        Assert.assertEquals(response.getStatusCode(),200);
         }
 
     @Test()
@@ -93,4 +93,57 @@ Assert.assertEquals(response.getStatusCode(),200);
         System.out.println("Issue created with id: "+jsonPath.getString("id"));
     }
 
+    @Test()
+    public final void addJiraComment(){
+        RequestSpecification requestSpecification=RestAssured.given();
+        requestSpecification.baseUri("http://localhost:8080");
+        requestSpecification.header("Content-Type","application/json");
+        requestSpecification.basePath("/rest/api/2/issue/10005/comment");
+        requestSpecification.header("Cookie",getSessionId());
+        requestSpecification.body("{\n" +
+                "    \"body\": \"My comment by rest assured to issue 10005.\",\n" +
+                "    \"visibility\": {\n" +
+                "        \"type\": \"role\",\n" +
+                "        \"value\": \"Administrators\"\n" +
+                "    }\n" +
+                "}");
+        requestSpecification.log();
+        Response response=requestSpecification.post();
+        Assert.assertEquals(response.getStatusCode(),201);
+        JsonPath jsonPath=JsonPath.from(response.getBody().asString());
+        System.out.println("Comment Added with id :"+jsonPath.getString("id"));
+    }
+    @Test()
+    public final void updateJiraComment(){
+        RequestSpecification requestSpecification=RestAssured.given();
+        requestSpecification.baseUri("http://localhost:8080");
+        requestSpecification.header("Content-Type","application/json");
+        requestSpecification.basePath("/rest/api/2/issue/10005/comment/10003");
+        requestSpecification.header("Cookie",getSessionId());
+        requestSpecification.body("{\n" +
+                "    \"body\": \"Updating My comment by rest assured to issue 10005.\",\n" +
+                "    \"visibility\": {\n" +
+                "        \"type\": \"role\",\n" +
+                "        \"value\": \"Administrators\"\n" +
+                "    }\n" +
+                "}");
+        requestSpecification.log();
+        Response response=requestSpecification.put();
+        Assert.assertEquals(response.getStatusCode(),200);
+        JsonPath jsonPath=JsonPath.from(response.getBody().asString());
+        System.out.println("Comment updated for comment id :"+jsonPath.getString("id"));
+    }
+    @Test()
+    public final void deleteJiraComment(){
+        RequestSpecification requestSpecification=RestAssured.given();
+        requestSpecification.baseUri("http://localhost:8080");
+        requestSpecification.header("Content-Type","application/json");
+        requestSpecification.basePath("/rest/api/2/issue/10005/comment/10002");
+        requestSpecification.header("Cookie",getSessionId());
+
+        requestSpecification.log();
+        Response response=requestSpecification.delete();
+        Assert.assertEquals(response.getStatusCode(),204);
+        System.out.println("Comment 10002 deleted ");
+    }
 }
