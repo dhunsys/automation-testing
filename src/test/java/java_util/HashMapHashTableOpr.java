@@ -22,10 +22,10 @@ public class HashMapHashTableOpr {
      * HashMap allows any no of null value
      */
     @Test
-    public final void HashMapAllowNNullVal(){
+    public final void HashMapAllowNullVal(){
         HashMap<String,String> hashMap=new HashMap<>();
         hashMap.put("K1",null);
-        hashMap.put("K2",null);// overwrite 1st null key
+        hashMap.put("K2",null);
         System.out.println(hashMap.toString());
     }
 
